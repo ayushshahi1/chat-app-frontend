@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io("ws://127.0.0.1:8000/");
+const socket = io.connect("http://localhost:3001");
 
 const Websocket = () => {
   const [message, setMessage] = useState("");
   const [messageRecieved, setMessageRecieved] = useState("");
 
   const sendMessage = () => {
-    socket.emit("send message", { message });
+    // socket.emit("send message", { message });
   };
 
   useEffect(() => {
